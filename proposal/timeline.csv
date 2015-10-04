@@ -1,0 +1,31 @@
+ID,Name,Begin date,End date,Duration,Completion,Cost,Coordinator,Predecessors,Outline number,Resources,Web Link,Resources,Notes
+0,Node Setup,10/7/15,10/9/15,3,0,0,,,1,,,
+7,"  Installation of Linux/OvS on BeagleBone",10/7/15,10/8/15,2,0,0,,,1.1,,,
+8,"  Verification of installation",10/9/15,10/9/15,1,0,0,,7,1.2,,,
+1,Ad-hoc Network,10/10/15,10/14/15,5,0,0,,0,2,,,
+9,"  Creation of network",10/10/15,10/12/15,3,0,0,,0,2.1,,,
+10,"  Test Ad-hoc network",10/13/15,10/14/15,2,0,0,,9,2.2,,,
+3,LQI Module,10/15/15,11/4/15,21,0,0,,1,3,,,
+61,"  Packet Broadcaster, LQI Response Handler",10/15/15,10/19/15,5,0,0,,,3.1,,,
+63,"  Broadcast Receiver, Broadcast Responder",10/20/15,10/24/15,5,0,0,,61,3.2,,,
+65,"  LQI Calculator, LQI Send to Controller",10/25/15,10/29/15,5,0,0,,61;63,3.3,,,
+79,"  LQI Module Field Test",10/30/15,11/1/15,3,0,0,,65,3.4,,,
+124,"  Buffer",11/2/15,11/4/15,3,0,0,,79,3.5,,,
+85,OF Controller Module,10/10/15,11/5/15,27,0,0,,0,4,,,
+86,"  Topology Modifier",10/10/15,10/17/15,8,0,0,,,4.1,,,
+87,"  Optimum Path Finder",10/18/15,10/25/15,8,0,0,,86,4.2,,,
+88,"  Network Updater",10/26/15,11/2/15,8,0,0,,87,4.3,,,
+152,"  Buffer",11/3/15,11/5/15,3,0,0,,88,4.4,,,
+115,Interim Project Report,11/5/15,11/5/15,1,0,0,,,5,,,
+117,System Integration Testing,11/6/15,11/27/15,22,0,0,,3;85;115,6,,,
+164,"  Module Integration",11/6/15,11/15/15,10,0,0,,,6.1,,,
+170,"  Troubleshooting possible issues",11/16/15,11/22/15,7,0,0,,164,6.2,,,
+172,"  Verification",11/23/15,11/27/15,5,0,0,,170,6.3,,,
+168,Final Report & Demo,11/28/15,11/28/15,1,0,0,,117,7,,,
+
+
+ID,Name,Default role,e-mail,Phone,Assignment role,Standard rate
+0,Angelyn,Default:0,,,,0
+1,Jignesh,Default:0,,,,0
+2,Alok,Default:0,,,,0
+3,Nishad,Default:0,,,,0
