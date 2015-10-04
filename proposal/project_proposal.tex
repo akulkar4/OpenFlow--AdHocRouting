@@ -8,6 +8,7 @@
 \usepackage{algorithm}
 \usepackage{algpseudocode}
 \usepackage{graphicx}
+\usepackage{hyperref}
 \graphicspath{ }
 
 \title{OpenFlow-based Adaptive Routing for Wireless Networks}
@@ -24,7 +25,9 @@
     Nishad Sabnis \\
     \textit{nsabnis@ncsu.edu}
 }
-\date{October 4th, 2015}
+\date{
+    \small{\url{https://sites.google.com/a/ncsu.edu/openflow-based-adaptive-routing-for-wireless-networks}}\\
+    October 4th, 2015}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -52,6 +55,7 @@ dynamically modified to ensure effective end to end packet transmission.
 \section{Components}
 \subsection{Platforms for the project}
 \begin{itemize}
+\item CentMesh
 \item OpenFlow v1.3
 \item OpenDaylight
 \item Ubuntu
@@ -146,17 +150,24 @@ Network Updater to configure these changes in Network.\\
 If the Network Updater receives a call to configure the changes in the network, it will compute the changes from the
 previous snapshot and then configure the routes that have been changed to appropriate nodes.
 \section{Per-member Responsibilities}
-\begin{tabular}{  | l | c | c | c | c |}
+\begin{tabular}{ | p{0.185\linewidth} | p{0.185\linewidth} | p{0.185\linewidth} | p{0.185\linewidth} | p{0.185\linewidth} | }
 \hline
 \textbf{Tasks}	&	\textbf{Angelyn Arputha Babu John}	&	\textbf{Jignesh Darji}	&	\textbf{Nishad Sabnis}	& \textbf{Alok Kulkarni} \\
 \hline \hline
 Node Setup	&	Implement	&	Implement	&	Implement	&	Implement \\
+\hline
 Creation of ad-hoc network	&	Review	&	Review	&	Implement	&	Implement \\
+\hline
 LQI Message Handling	&	Review	&	Review	&	Implement	&	Implement \\ 
+\hline
 LQI Calculator	&	Review	&	Review	&	Review	&	Implement\\ 
+\hline
 LQI to Control Updater	&	Review	&	Review	&	Implement	&	Review \\
+\hline
 Topology Modifier	&	Implement	&	Implement	&	Review	&	Review\\
+\hline
 Optimal Path Finder	&	Implement	&	Implement	&	Review	&	Review\\
+\hline
 Network Updater	&	Implement	&	Implement	&	Review	&	Review\\
 \hline
 \end{tabular}
@@ -228,4 +239,13 @@ Decrease associated path cost of a node NOT in Network Model	&	Cost to this node
 \hline
 \end{tabular}
 \section{Demo Plan}
+\begin{enumerate}
+\item Once the ad-hoc network is setup, the controller will generate the Network Model and configure the rules in all
+the nodes for the optimal path.
+\item A display utility for the Network Model will print the current Network Model.
+\item We'll display that these rules have been correctly configured in the nodes by connecting to each node and
+displaying their rule tables.
+\item Thus, on changing the distance between the nodes, we plan to show that the routes between the two endpoints change
+dynamically based on the link strength. 
+\end{enumerate}
 \end{document}
