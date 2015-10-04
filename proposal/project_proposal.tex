@@ -7,6 +7,8 @@
 \usepackage{amsmath}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
+\usepackage{graphicx}
+\graphicspath{ }
 
 \title{OpenFlow-based Adaptive Routing for Wireless Networks}
 \author{
@@ -33,6 +35,8 @@
 \maketitle
 \section{Introduction}
 \subsection{Problem Statement}
+Designing a system to enable adaptive routing in a wireless network in order to make a comparative analysis of the
+throughput efficiency of ground nodes versus aerial nodes.
 \subsection{Problem Description}
 \par We aim to implement OpenFlow based adaptive routing in an ad-hoc network by monitoring the link quality between wireless
 nodes. We anticipate that in such a network which offers multiple wireless routes between two end-points, the
@@ -67,12 +71,12 @@ The ground nodes will be movable CentMesh carts. They will have the following fe
 \item One of the ground nodes will be the controller
 \end{itemize}
 \subsubsection{Aerial Nodes}
-THe aerial nodes will have the capacity to go up till 30 feet and beem signals from above. The key features of the
+The aerial nodes will have the capacity to go up till 30 feet and beem signals from above. The key features of the
 aerial nodes are:
 \begin{itemize}
 \item At least one wireless interface
 \item BeagleBone black Linux boards
-\item Open vSwitch ketnel module installed
+\item Open vSwitch kernel module installed
 \end{itemize}
 \subsubsection{Software Components}
 The software components will help determine the link quality and the optimum path, and they will configure the network
@@ -83,7 +87,11 @@ with the optimal path.
 \end{itemize}
 \section{Design}
 \subsection{Overview}
-%TODO: add figure
+\begin{figure}[H]
+\caption{Design Overview}
+\centering
+\includegraphics[width=\textwidth]{design}
+\end{figure}
 The above figure describes the overview of the components constituting this system. There exists a wireless ad-hoc
 network of aerial and ground nodes. One of the nodes acts as an SDN controller and the others act as agents. A link
 quality information (LQI) module is running on all the nodes in the network and this information is forwarded to the
@@ -91,7 +99,11 @@ OpenFlow controller which makes adaptive routing decisions. The controller will 
 optimum end-to-end route between the endpoints. These routes will then be configured into the nodes using OpenFlow. The
 nodes will have OpenFlow agent running on them which will configure the routes sent by the Controller. 
 \subsection{Link Quality Information Module}
-%TODO: LQI diagram
+\begin{figure}[H]
+\caption{Components in the Link Quality Information Module}
+\centering
+\includegraphics[width=\textwidth]{lqi}
+\end{figure}
 \noindent \textbf{Packet Broadcaster} \\
 The packet broadcaster will broadcast packets at a regular interval to initiate the neighbour discovery. \\
 
@@ -115,7 +127,11 @@ table.\\
 The LQI to Control Updater gets the calculated Link Quality Information from the LQI Calculator. It will send this
 information over to the controller. \\
 \subsection{OpenFlow Control Module}
-%TODO: OpenFlow diagram
+\begin{figure}[H]
+\caption{Components in the OpenFlow Control application}
+\centering
+\includegraphics[width=\textwidth]{openflow}
+\end{figure}
 \noindent \textbf{Topology Modifier} \\
 The LQI packets received by the controller will be send to this module to generate/update the network topology. The
 topology will consists of the nodes and the link costs associated between each nodes. If there’s is a modification in
@@ -146,6 +162,11 @@ Network Updater	&	Implement	&	Implement	&	Review	&	Review\\
 \end{tabular}
 
 \section{Timeline}
+\begin{figure}[H]
+\caption{Project Timeline}
+\centering
+\includegraphics[width=\textwidth]{timeline}
+\end{figure}
 \section{Test Plan}
 \begin{tabular}{  | p{0.185\linewidth} | p{0.185\linewidth} | p{0.185\linewidth} | p{0.185\linewidth} | p{0.185\linewidth} |}
 \hline
