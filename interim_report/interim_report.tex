@@ -269,8 +269,7 @@ Add a node with low path cost &
 \textbf{LQI Module}: Connected nodes transmit their respective costs with new node to LQI messages \newline 
 \textbf{Topology Modifier}: Adds the node to the Topology; Intimate OPF \newline 
 \textbf{Optimal Path Finder}: Adds the path to Network Model; Intimate NU \newline
-\textbf{Network Updater}: Updates the affected nodes. \newline
-tcpdump now gives the path with least cost & 
+\textbf{Network Updater}: Updates the affected nodes. &
 The message packets are now sent through the path with least cost instead of following the costlier route &
 Pass \\
 \hline
@@ -279,8 +278,7 @@ Add a node with high path cost &
 \textbf{LQI Module}: Connected nodes should transmit cost with the new node to the LQI messages\newline 
 \textbf{Topology Modifier}: Add node to Topology; intimate OPF\newline 
 \textbf{Optimal Path Finder}: Network Model remains same\newline
-\textbf{Network Updater}: Not Affected \newline
-tcpdump does not show any activity &
+\textbf{Network Updater}: Not Affected &
 The message is sent through the usual path and is not changed by the addition of this new node &
 Pass\\
 \hline
@@ -289,8 +287,7 @@ Remove node from Network Model &
 \textbf{LQI Module}: LQI messages will not contain costs to this node\newline 
 \textbf{Topology Modifier}: Remove node from Topology; intimate OPF \newline 
 \textbf{Optimal Path Finder}: Modifies Network Model; intimate NU \newline
-\textbf{Network Updater}: Updates the affected nodes \newline 
-tcpdump now shows a different result if the removed node was part of the optimal path &
+\textbf{Network Updater}: Updates the affected nodes &
 The node is successfully removed from the topology with or without affecting the other nodes &
 Pending\\
 \hline
@@ -299,8 +296,7 @@ Remove node not part of the Network Model &
 \textbf{LQI Module}: LQI messages will not contain costs to this node\newline 
 \textbf{Topology Modifier}: Remove node from Topology; intimate OPF\newline 
 \textbf{Optimal Path Finder}: Modifies Network Model; intimate NU\newline
-\textbf{Network Updater}: Not Affected\newline
-tcpdump does not show any activity &
+\textbf{Network Updater}: Not Affected &
 The controller ignores this change as it is not part of the network &
 Pending\\
 \hline
@@ -309,7 +305,7 @@ Increase associated path cost of a node in Network Model &
 \textbf{LQI Module}:  Cost to this node should be increased in the LQI messages\newline 
 \textbf{Topology Modifier}: Update path costs in Topology; intimate OPF\newline 
 \textbf{Optimal Path Finder}: Modifies Network Model; intimate NU\newline
-\textbf{Network Updater}: Update the affected nodes\newline &
+\textbf{Network Updater}: Update the affected nodes &
 Changes in the network are noticed as the controller routes the packet through the cheaper route &
 Pending\\
 \hline
@@ -318,8 +314,7 @@ Increase associated path cost of a node NOT in the Network Model &
 \textbf{LQI Module}: Cost to this node should be increased in the LQI messages\newline 
 \textbf{Topology Modifier}: Update path costs in Topology; intimate OPF\newline 
 \textbf{Optimal Path Finder}: Network Model remains unchanged\newline
-\textbf{Network Updater}: Not affected\newline
-tcpdump does not show any activity &
+\textbf{Network Updater}: Not affected &
 The controller ignores this change as it is not part of the network &
 Pending\\
 \hline
@@ -337,8 +332,7 @@ Decrease associated path cost of a node NOT in the Network Model &
 \textbf{LQI Module}: Cost to this node should be increased in the LQI messages\newline 
 \textbf{Topology Modifier}: Update path costs in Topology; intimate OPF\newline 
 \textbf{Optimal Path Finder}: Network Model remains unchanged\newline
-\textbf{Network Updater}: Not affected\newline
-tcpdump does not show any activity &
+\textbf{Network Updater}: Not affected &
 The controller ignores this change as it is not part of the network &
 Pending\\
 \hline
