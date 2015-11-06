@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.9.7)  5 NOV 2015 19:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.9.7)  5 NOV 2015 20:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -327,23 +327,41 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip58
 )
+(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
+\LTleft=\skip59
+\LTright=\skip60
+\LTpre=\skip61
+\LTpost=\skip62
+\LTchunksize=\count130
+\LTcapwidth=\dimen130
+\LT@head=\box32
+\LT@firsthead=\box33
+\LT@foot=\box34
+\LT@lastfoot=\box35
+\LT@cols=\count131
+\LT@rows=\count132
+\c@LT@tables=\count133
+\c@LT@chunks=\count134
+\LT@p@ftn=\toks26
+)
 (./interim_report.aux)
 \openout1 = `interim_report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -379,20 +397,20 @@ LaTeX Font Info:    ... okay on input line 38.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count130
+\c@lstlisting=\count135
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count131
-\scratchdimen=\dimen130
-\scratchbox=\box32
-\nofMPsegments=\count132
-\nofMParguments=\count133
-\everyMPshowfont=\toks26
-\MPscratchCnt=\count134
-\MPscratchDim=\dimen131
-\MPnumerator=\count135
-\makeMPintoPDFobject=\count136
-\everyMPtoPDFconversion=\toks27
+\scratchcounter=\count136
+\scratchdimen=\dimen131
+\scratchbox=\box36
+\nofMPsegments=\count137
+\nofMParguments=\count138
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count139
+\MPscratchDim=\dimen132
+\MPnumerator=\count140
+\makeMPintoPDFobject=\count141
+\everyMPtoPDFconversion=\toks28
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -408,8 +426,8 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\AtBeginShipoutBox=\box33
-Package hyperref Info: Link coloring OFF on input line 38.
+\AtBeginShipoutBox=\box37
+Package hyperref Info: Link coloring OFF on input line 39.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -417,70 +435,70 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count137
+\c@section@level=\count142
 )
-LaTeX Info: Redefining \ref on input line 38.
-LaTeX Info: Redefining \pageref on input line 38.
-LaTeX Info: Redefining \nameref on input line 38.
+LaTeX Info: Redefining \ref on input line 39.
+LaTeX Info: Redefining \pageref on input line 39.
+LaTeX Info: Redefining \nameref on input line 39.
 
 (./interim_report.out) (./interim_report.out)
 \@outlinefile=\write3
 \openout3 = `interim_report.out'.
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 59.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 60.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 59.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 60.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 <design.png, id=123, 880.28876pt x 565.11125pt>
 File: design.png Graphic file (type png)
  <use design.png>
-Package pdftex.def Info: design.png used on input line 97.
+Package pdftex.def Info: design.png used on input line 98.
 (pdftex.def)             Requested size: 469.75502pt x 301.55978pt.
 
 <lqi.png, id=125, 946.53625pt x 623.32875pt>
 File: lqi.png Graphic file (type png)
  <use lqi.png>
-Package pdftex.def Info: lqi.png used on input line 109.
+Package pdftex.def Info: lqi.png used on input line 110.
 (pdftex.def)             Requested size: 469.75502pt x 309.34286pt.
  [2 <./design.png>]
 <packet_broadcaster.png, id=132, 616.3025pt x 143.53625pt>
 File: packet_broadcaster.png Graphic file (type png)
 
 <use packet_broadcaster.png>
-Package pdftex.def Info: packet_broadcaster.png used on input line 125.
+Package pdftex.def Info: packet_broadcaster.png used on input line 126.
 (pdftex.def)             Requested size: 469.75502pt x 109.40843pt.
 
 <broadcast_responder.png, id=133, 605.26125pt x 114.4275pt>
 File: broadcast_responder.png Graphic file (type png)
 
 <use broadcast_responder.png>
-Package pdftex.def Info: broadcast_responder.png used on input line 135.
+Package pdftex.def Info: broadcast_responder.png used on input line 136.
 (pdftex.def)             Requested size: 469.75502pt x 88.80959pt.
  [3 <./lqi.png> <./packet_broadcaster.png>]
 <response_handler.png, id=141, 594.22pt x 63.23625pt>
 File: response_handler.png Graphic file (type png)
 
 <use response_handler.png>
-Package pdftex.def Info: response_handler.png used on input line 148.
+Package pdftex.def Info: response_handler.png used on input line 149.
 (pdftex.def)             Requested size: 469.75502pt x 49.99274pt.
 
 <lqi_to_control_updater.png, id=142, 655.44875pt x 252.945pt>
 File: lqi_to_control_updater.png Graphic file (type png)
 
 <use lqi_to_control_updater.png>
-Package pdftex.def Info: lqi_to_control_updater.png used on input line 161.
+Package pdftex.def Info: lqi_to_control_updater.png used on input line 162.
 (pdftex.def)             Requested size: 469.75502pt x 181.28271pt.
 
 <openflow.png, id=143, 957.5775pt x 637.38126pt>
 File: openflow.png Graphic file (type png)
  <use openflow.png>
-Package pdftex.def Info: openflow.png used on input line 167.
+Package pdftex.def Info: openflow.png used on input line 168.
 (pdftex.def)             Requested size: 469.75502pt x 312.6794pt.
  [4 <./broadcast_responder.png> <./response_handler.png> <./lqi_to_control_upda
 ter.png>]
@@ -503,7 +521,7 @@ Missing character: There is no ù in font cmr10!
 <OPF_paths.png, id=148, 599.23875pt x 381.425pt>
 File: OPF_paths.png Graphic file (type png)
  <use OPF_paths.png>
-Package pdftex.def Info: OPF_paths.png used on input line 203.
+Package pdftex.def Info: OPF_paths.png used on input line 204.
 (pdftex.def)             Requested size: 469.75502pt x 299.01187pt.
  [5 <./openflow.png>]
 Missing character: There is no ‚ in font cmr10!
@@ -525,247 +543,160 @@ Missing character: There is no ô in font cmr10!
 File: NU_Algorithm_Example.png Graphic file (type png)
 
 <use NU_Algorithm_Example.png>
-Package pdftex.def Info: NU_Algorithm_Example.png used on input line 228.
+Package pdftex.def Info: NU_Algorithm_Example.png used on input line 229.
 (pdftex.def)             Requested size: 469.75502pt x 321.44463pt.
  [6 <./OPF_paths.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 234--234
+Underfull \hbox (badness 10000) in paragraph at lines 236--236
 []\OT1/cmr/bx/n/10 Angelyn
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 234--234
+Underfull \hbox (badness 10000) in paragraph at lines 236--236
 \OT1/cmr/bx/n/10 Arputha Babu
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 248--248
+Underfull \hbox (badness 10000) in paragraph at lines 250--250
 []\OT1/cmr/m/n/10 Optimal Path
  []
 
 
-Overfull \hbox (24.76257pt too wide) in paragraph at lines 232--253
+Overfull \hbox (24.76257pt too wide) in paragraph at lines 234--255
 [] 
  []
 
 
-Underfull \hbox (badness 4181) in paragraph at lines 257--257
-[]\OT1/cmr/bx/n/10 Topology Mod-i-
+Underfull \hbox (badness 2790) in paragraph at lines 267--271
+[]|\OT1/cmr/bx/n/10 LQI Mod-ule\OT1/cmr/m/n/10 : Con-nected nodes
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 257--257
-[]\OT1/cmr/bx/n/10 Optimal Path
+Underfull \hbox (badness 2790) in paragraph at lines 277--281
+[]|\OT1/cmr/bx/n/10 LQI Mod-ule\OT1/cmr/m/n/10 : Con-nected nodes
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 258--259
-[]\OT1/cmr/bx/n/10 Network Up-
+Underfull \hbox (badness 10000) in paragraph at lines 282--282
+\OT1/cmr/m/n/10 through the usual
  []
 
 
-Underfull \hbox (badness 1762) in paragraph at lines 260--260
-[]\OT1/cmr/m/n/10 Add a node with
+Underfull \hbox (badness 10000) in paragraph at lines 282--282
+\OT1/cmr/m/n/10 path and is not
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 260--260
-[]\OT1/cmr/m/n/10 Connected nodes
+Underfull \hbox (badness 3884) in paragraph at lines 282--282
+\OT1/cmr/m/n/10 di-tion of this new
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 260--260
-\OT1/cmr/m/n/10 should trans-mit
+Underfull \hbox (badness 4467) in paragraph at lines 286--286
+[]|\OT1/cmr/m/n/10 Remove node from
  []
 
 
-Underfull \hbox (badness 3058) in paragraph at lines 260--260
-\OT1/cmr/m/n/10 node to the LQI
+Underfull \hbox (badness 3701) in paragraph at lines 292--292
+\OT1/cmr/m/n/10 fully re-moved from
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 260--260
-[]\OT1/cmr/m/n/10 Add to Net-work
+Underfull \hbox (badness 10000) in paragraph at lines 296--296
+[]|\OT1/cmr/m/n/10 Remove node not
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 260--260
-\OT1/cmr/m/n/10 Model; in-ti-mate
+Underfull \hbox (badness 10000) in paragraph at lines 306--306
+[]|\OT1/cmr/m/n/10 Increase as-so-ci-ated
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 260--261
-[]\OT1/cmr/m/n/10 Update af-fected
+Underfull \hbox (badness 3460) in paragraph at lines 311--311
+\OT1/cmr/m/n/10 the packet through
  []
 
 
-Underfull \hbox (badness 1762) in paragraph at lines 262--262
-[]\OT1/cmr/m/n/10 Add a node with
+Underfull \hbox (badness 10000) in paragraph at lines 315--315
+[]|\OT1/cmr/m/n/10 Increase as-so-ci-ated
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 262--262
-[]\OT1/cmr/m/n/10 Connected nodes
+Underfull \hbox (badness 10000) in paragraph at lines 325--325
+[]|\OT1/cmr/m/n/10 Decrease as-so-ci-ated
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 262--262
-\OT1/cmr/m/n/10 should trans-mit
+Underfull \hbox (badness 10000) in paragraph at lines 330--330
+\OT1/cmr/m/n/10 as the con-troller
  []
 
 
-Underfull \hbox (badness 3058) in paragraph at lines 262--262
-\OT1/cmr/m/n/10 node to the LQI
+Underfull \hbox (badness 10000) in paragraph at lines 330--330
+\OT1/cmr/m/n/10 routes the packet
  []
 
 
-Underfull \hbox (badness 1371) in paragraph at lines 264--264
-[]\OT1/cmr/m/n/10 LQI mes-sages will
+Underfull \hbox (badness 2460) in paragraph at lines 330--330
+\OT1/cmr/m/n/10 through the newest
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 264--264
-[]\OT1/cmr/m/n/10 Modifies Net-work
+Underfull \hbox (badness 10000) in paragraph at lines 334--334
+[]|\OT1/cmr/m/n/10 Decrease as-so-ci-ated
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 264--264
-\OT1/cmr/m/n/10 Model; in-ti-mate
+Overfull \hbox (36.51796pt too wide) in alignment at lines 258--343
+ [] [] [] [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 264--265
-[]\OT1/cmr/m/n/10 Update af-fected
+Underfull \vbox (badness 10000) detected at line 343
+ []
+
+[7 <./NU_Algorithm_Example.png>] [8]
+Underfull \hbox (badness 10000) in paragraph at lines 348--348
+[]\OT1/cmr/bx/n/10 Demo
  []
 
 
-Underfull \hbox (badness 3260) in paragraph at lines 266--266
-[]\OT1/cmr/m/n/10 Remove node not
+Underfull \hbox (badness 1028) in paragraph at lines 350--351
+\OT1/cmr/m/n/10 such that the short-est path
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 266--266
-\OT1/cmr/m/n/10 part of Net-work
+Underfull \hbox (badness 1028) in paragraph at lines 355--356
+\OT1/cmr/m/n/10 such that the short-est path
  []
 
 
-Underfull \hbox (badness 1371) in paragraph at lines 266--266
-[]\OT1/cmr/m/n/10 LQI mes-sages will
+Underfull \hbox (badness 1371) in paragraph at lines 355--356
+\OT1/cmr/m/n/10 Then a sim-ple data stream
  []
 
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 361.
 
-Underfull \hbox (badness 1308) in paragraph at lines 268--268
-[]\OT1/cmr/m/n/10 Increase as-so-ci-ated
- []
-
-
-Underfull \hbox (badness 1048) in paragraph at lines 268--268
-[]\OT1/cmr/m/n/10 Cost to this node
- []
-
-
-Underfull \hbox (badness 1735) in paragraph at lines 268--268
-\OT1/cmr/m/n/10 in Topol-ogy; in-ti-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 268--268
-[]\OT1/cmr/m/n/10 Modifies Net-work
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 268--268
-\OT1/cmr/m/n/10 Model; in-ti-mate
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 268--269
-[]\OT1/cmr/m/n/10 Update af-fected
- []
-
-
-Underfull \hbox (badness 1308) in paragraph at lines 270--270
-[]\OT1/cmr/m/n/10 Increase as-so-ci-ated
- []
-
-
-Underfull \hbox (badness 5533) in paragraph at lines 270--270
-\OT1/cmr/m/n/10 NOT in Net-work
- []
-
-
-Underfull \hbox (badness 1048) in paragraph at lines 270--270
-[]\OT1/cmr/m/n/10 Cost to this node
- []
-
-
-Underfull \hbox (badness 1735) in paragraph at lines 270--270
-\OT1/cmr/m/n/10 in Topol-ogy; in-ti-
- []
-
-
-Underfull \hbox (badness 1048) in paragraph at lines 272--272
-[]\OT1/cmr/m/n/10 Cost to this node
- []
-
-
-Underfull \hbox (badness 1735) in paragraph at lines 272--272
-\OT1/cmr/m/n/10 in Topol-ogy; in-ti-
- []
-
-
-Underfull \hbox (badness 5533) in paragraph at lines 274--274
-\OT1/cmr/m/n/10 NOT in Net-work
- []
-
-
-Underfull \hbox (badness 1048) in paragraph at lines 274--274
-[]\OT1/cmr/m/n/10 Cost to this node
- []
-
-
-Underfull \hbox (badness 1735) in paragraph at lines 274--274
-\OT1/cmr/m/n/10 in Topol-ogy; in-ti-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 274--274
-[]\OT1/cmr/m/n/10 Modifies Net-work
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 274--274
-\OT1/cmr/m/n/10 Model; in-ti-mate
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 274--275
-[]\OT1/cmr/m/n/10 Update af-fected
- []
-
-
-Overfull \hbox (24.76257pt too wide) in paragraph at lines 255--277
+Overfull \hbox (24.51796pt too wide) in paragraph at lines 346--361
 [] 
  []
 
-[7 <./NU_Algorithm_Example.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 287.
- [8]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 287.
+[9]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 361.
  (./interim_report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 287.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 287.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 361.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 361.
 Package rerunfilecheck Info: File `interim_report.out' has not changed.
 (rerunfilecheck)             Checksum: 1B959F8CF668E136C93E4AA4A8844BF9;1789.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 287.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 361.
  ) 
 Here is how much of TeX's memory you used:
- 8133 strings out of 495020
- 118191 string characters out of 6181325
- 223614 words of memory out of 5000000
- 11207 multiletter control sequences out of 15000+600000
+ 8215 strings out of 495020
+ 119146 string characters out of 6181325
+ 244423 words of memory out of 5000000
+ 11288 multiletter control sequences out of 15000+600000
  11020 words of font info for 40 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 29i,11n,43p,281b,392s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 29i,11n,43p,281b,445s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texli
@@ -776,10 +707,10 @@ pe1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmtt9.pfb>
-Output written on interim_report.pdf (8 pages, 320982 bytes).
+Output written on interim_report.pdf (9 pages, 324277 bytes).
 PDF statistics:
  224 PDF objects out of 1000 (max. 8388607)
- 188 compressed objects within 2 object streams
- 44 named destinations out of 1000 (max. 500000)
+ 187 compressed objects within 2 object streams
+ 42 named destinations out of 1000 (max. 500000)
  254 words of extra memory for PDF output out of 10000 (max. 10000000)
 

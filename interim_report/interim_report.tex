@@ -9,6 +9,7 @@
 \usepackage{algpseudocode}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{longtable}
 \graphicspath{ }
 
 \title{OpenFlow-based Adaptive Routing for Wireless Networks}
@@ -229,6 +230,7 @@ by changing the DST\_MAC to D’s MAC and SRC\_MAC to B’s MAC. Similar rules o
 \end{figure}
 
 \section{Per-member Responsibilities}
+{\renewcommand{\arraystretch}{1.5}
 \begin{tabular}{ | p{0.185\linewidth} | p{0.185\linewidth} | p{0.185\linewidth} | p{0.185\linewidth} | p{0.185\linewidth} | }
 \hline
 \textbf{Tasks}	&	\textbf{Angelyn Arputha Babu John}	&	\textbf{Jignesh Darji}	&	\textbf{Nishad Sabnis}	& \textbf{Alok Kulkarni} \\
@@ -249,39 +251,111 @@ Optimal Path Finder	&	Implement	&	Implement	&	Review	&	Review\\
 \hline
 Network Updater	&	Implement	&	Implement	&	Review	&	Review\\
 \hline
-\end{tabular}
+\end{tabular}}
 
 \section{Test Plan}
-\begin{tabular}{  | p{0.185\linewidth} | p{0.185\linewidth} | p{0.185\linewidth} | p{0.185\linewidth} | p{0.185\linewidth} |}
+{\renewcommand{\arraystretch}{1.5}
+\begin{longtable}{  | p{0.1\linewidth} | p{0.2\linewidth} | p{0.35\linewidth} | p{0.2\linewidth} | p{0.1\linewidth} | }
 \hline
-\textbf{Test}	&	\textbf{LQI Module}	&	\textbf{Topology Modifier(TM)}	&	\textbf{Optimal Path Finder (OPF)}	&
-\textbf{Network Updater(NU)}\\ 
+\textbf{Test ID} & \textbf{Test} & \textbf{Expected Observation} & \textbf{Conclusion} & \textbf{Result} \\ 
 \hline \hline
-Add a node with low path cost	&	Connected nodes should transmit cost with the new node to the LQI messages	&	Add node to Topology; intimate OPF	&	Add to Network Model; intimate NU	&	Update affected nodes\\ 
+T-1 & Establishing the ad-hoc Network & All the nodes (ground and aerial) are able to ping each other within the network
+& Each node is able to join the ad-hoc network successfully & Pass \\
 \hline
-Add a node with high path cost	&	Connected nodes should transmit cost with the new node to the LQI messages	&	Add node to Topology; intimate OPF	&	Network Model remains same	&	NA\\ 
+T-2 & 
+Add a node with low path cost & 
+\textbf{LQI Module}: Connected nodes transmit their respective costs with new node to LQI messages \newline 
+\textbf{Topology Modifier}: Adds the node to the Topology; Intimate OPF \newline 
+\textbf{Optimal Path Finder}: Adds the path to Network Model; Intimate NU \newline
+\textbf{Network Updater}: Updates the affected nodes. \newline
+tcpdump now gives the path with least cost & 
+The message packets are now sent through the path with least cost instead of following the costlier route &
+Pass \\
 \hline
-Remove node from Network Model	&	LQI messages will not contain costs to this node	&	Remove node from Topology; intimate OPF	&	Modifies Network Model; intimate NU	&	Update affected nodes\\ 
+T-3 & 
+Add a node with high path cost & 
+\textbf{LQI Module}: Connected nodes should transmit cost with the new node to the LQI messages\newline 
+\textbf{Topology Modifier}: Add node to Topology; intimate OPF\newline 
+\textbf{Optimal Path Finder}: Network Model remains same\newline
+\textbf{Network Updater}: Not Affected \newline
+tcpdump does not show any activity &
+The message is sent through the usual path and is not changed by the addition of this new node &
+Pass\\
 \hline
-Remove node not part of Network Model	&	LQI messages will not contain costs to this node	&	Remove node from Topology; intimate OPF	&	Network Model remains same	&	NA\\ 
+T-4 & 
+Remove node from Network Model & 
+\textbf{LQI Module}: LQI messages will not contain costs to this node\newline 
+\textbf{Topology Modifier}: Remove node from Topology; intimate OPF \newline 
+\textbf{Optimal Path Finder}: Modifies Network Model; intimate NU \newline
+\textbf{Network Updater}: Updates the affected nodes \newline 
+tcpdump now shows a different result if the removed node was part of the optimal path &
+The node is successfully removed from the topology with or without affecting the other nodes &
+Pending\\
 \hline
-Increase associated path cost of a node in Network Model	&	Cost to this node should be increased in the LQI messages	&	Update path costs in Topology; intimate OPF	&	Modifies Network Model; intimate NU	&	Update affected nodes\\ 
+T-5 & 
+Remove node not part of the Network Model & 
+\textbf{LQI Module}: LQI messages will not contain costs to this node\newline 
+\textbf{Topology Modifier}: Remove node from Topology; intimate OPF\newline 
+\textbf{Optimal Path Finder}: Modifies Network Model; intimate NU\newline
+\textbf{Network Updater}: Not Affected\newline
+tcpdump does not show any activity &
+The controller ignores this change as it is not part of the network &
+Pending\\
 \hline
-Increase associated path cost of a node NOT in Network Model	&	Cost to this node should be increased in the LQI messages	&	Update path costs in Topology; intimate OPF	&	Network Model remains same	&	NA\\ 
+T-6 & 
+Increase associated path cost of a node in Network Model & 
+\textbf{LQI Module}:  Cost to this node should be increased in the LQI messages\newline 
+\textbf{Topology Modifier}: Update path costs in Topology; intimate OPF\newline 
+\textbf{Optimal Path Finder}: Modifies Network Model; intimate NU\newline
+\textbf{Network Updater}: Update the affected nodes\newline &
+Changes in the network are noticed as the controller routes the packet through the cheaper route &
+Pending\\
 \hline
-Decrease associated path cost of a node in Network Model	&	Cost to this node should be decreased in the LQI messages	&	Update path costs in Topology; intimate OPF	&	Network Model remains same	&	NA\\ 
+T-7 & 
+Increase associated path cost of a node NOT in the Network Model & 
+\textbf{LQI Module}: Cost to this node should be increased in the LQI messages\newline 
+\textbf{Topology Modifier}: Update path costs in Topology; intimate OPF\newline 
+\textbf{Optimal Path Finder}: Network Model remains unchanged\newline
+\textbf{Network Updater}: Not affected\newline
+tcpdump does not show any activity &
+The controller ignores this change as it is not part of the network &
+Pending\\
 \hline
-Decrease associated path cost of a node NOT in Network Model	&	Cost to this node should be decreased in the LQI messages	&	Update path costs in Topology; intimate OPF	&	Modifies Network Model; intimate NU	&	Update affected nodes \\
+T-8 & 
+Decrease associated path cost of a node in Network Model & 
+\textbf{LQI Module}: Cost to this node should be decreased in the LQI messages\newline 
+\textbf{Topology Modifier}: Update path costs in Topology; intimate OPF \newline 
+\textbf{Optimal Path Finder}: Modifies Network Model; intimate NU\newline
+\textbf{Network Updater}: Update the affected nodes \newline &
+The network changes as the controller routes the packet through the newest path with least cost. &
+Pending\\
 \hline
-\end{tabular}
+T-9 & 
+Decrease associated path cost of a node NOT in the Network Model & 
+\textbf{LQI Module}: Cost to this node should be increased in the LQI messages\newline 
+\textbf{Topology Modifier}: Update path costs in Topology; intimate OPF\newline 
+\textbf{Optimal Path Finder}: Network Model remains unchanged\newline
+\textbf{Network Updater}: Not affected\newline
+tcpdump does not show any activity &
+The controller ignores this change as it is not part of the network &
+Pending\\
+\hline
+\end{longtable}}
 \section{Demo Plan}
-\begin{enumerate}
-\item Once the ad-hoc network is setup, the controller will generate the Network Model and configure the rules in all
-the nodes for the optimal path.
-\item A display utility for the Network Model will print the current Network Model.
-\item We'll display that these rules have been correctly configured in the nodes by connecting to each node and
-displaying their rule tables.
-\item Thus, on changing the distance between the nodes, we plan to show that the routes between the two endpoints change
-dynamically based on the link strength. 
-\end{enumerate}
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{ | p{0.095\linewidth} | p{0.285\linewidth} | p{0.285\linewidth} | p{0.285\linewidth} | }
+\hline
+\textbf{Demo ID}	&	\textbf{Scenario}	&	\textbf{Expected Observation}	&	\textbf{Conclusion}	\\ 
+\hline \hline
+D-1 & The nodes will be arranged such that the shortest path from A to D is A-> D. Then a simple data stream from Host 1
+to Host 2 will be started. Tcpdump will be running on all nodes & Tcpdump for A and D nodes will show the data stream
+but tcpdump for B and C nodes will show no activity & The system has setup the flow in such a way that the route is
+direct. \\
+\hline
+D-2 & The nodes will be arranged such that the shortest path from A to D is A->B->C->D. Then a simple data stream from
+Host 1 to Host 2 will be started. Tcpdump will be running on all nodes & Tcpdump for A,B,C,D nodes will show the data
+stream and indicate the packet path & The system has setup the flow in such a way that the route is not the direct
+route. LQI based routing has successfully taken place and routes have been configured accordingly \\
+\hline
+\end{tabular}}
 \end{document}
