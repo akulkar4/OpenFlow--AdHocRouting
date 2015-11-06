@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.9.7)  5 NOV 2015 21:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.9.7)  5 NOV 2015 21:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -696,25 +696,37 @@ Missing character: There is no   in font cmr10!
 [9]
 Missing character: There is no Â in font cmr10!
 Missing character: There is no   in font cmr10!
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 413.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 419.
  [10pdfTeX warning (ext4): destination with the same identifier (name{cite.}) h
 as been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.413 \end{document}
+l.419 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier
+ (name{cite.}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.419 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier
+ (name{cite.}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.419 \end{document}
                     ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 413.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 419.
  (./interim_report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 413.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 413.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 419.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 419.
 Package rerunfilecheck Info: File `interim_report.out' has not changed.
 (rerunfilecheck)             Checksum: 1CC9A518AFC1C78A20CF558D2299D088;2073.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 413.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 419.
  ) 
 Here is how much of TeX's memory you used:
  8257 strings out of 495020
@@ -736,7 +748,7 @@ msfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.p
 fb>
-Output written on interim_report.pdf (10 pages, 348661 bytes).
+Output written on interim_report.pdf (10 pages, 348741 bytes).
 PDF statistics:
  267 PDF objects out of 1000 (max. 8388607)
  226 compressed objects within 3 object streams
