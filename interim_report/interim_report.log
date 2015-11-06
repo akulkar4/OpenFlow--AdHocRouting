@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.9.7)  5 NOV 2015 21:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.9.7)  5 NOV 2015 21:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -349,6 +349,12 @@ Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
 
 LaTeX Warning: Label `' multiply defined.
 
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
 )
 \openout1 = `interim_report.aux'.
 
@@ -577,117 +583,117 @@ Overfull \hbox (24.76257pt too wide) in paragraph at lines 235--256
 [] 
  []
 
-
-Underfull \hbox (badness 2790) in paragraph at lines 268--272
+[7 <./NU_Algorithm_Example.png>]
+Underfull \hbox (badness 2790) in paragraph at lines 269--273
 []|\OT1/cmr/bx/n/10 LQI Mod-ule\OT1/cmr/m/n/10 : Con-nected nodes
  []
 
 
-Underfull \hbox (badness 2790) in paragraph at lines 278--282
+Underfull \hbox (badness 2790) in paragraph at lines 279--283
 []|\OT1/cmr/bx/n/10 LQI Mod-ule\OT1/cmr/m/n/10 : Con-nected nodes
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 283--283
+Underfull \hbox (badness 10000) in paragraph at lines 284--284
 \OT1/cmr/m/n/10 through the usual
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 283--283
+Underfull \hbox (badness 10000) in paragraph at lines 284--284
 \OT1/cmr/m/n/10 path and is not
  []
 
 
-Underfull \hbox (badness 3884) in paragraph at lines 283--283
+Underfull \hbox (badness 3884) in paragraph at lines 284--284
 \OT1/cmr/m/n/10 di-tion of this new
  []
 
 
-Underfull \hbox (badness 4467) in paragraph at lines 287--287
+Underfull \hbox (badness 4467) in paragraph at lines 288--288
 []|\OT1/cmr/m/n/10 Remove node from
  []
 
 
-Underfull \hbox (badness 3701) in paragraph at lines 293--293
+Underfull \hbox (badness 3701) in paragraph at lines 294--294
 \OT1/cmr/m/n/10 fully re-moved from
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 297--297
+Underfull \hbox (badness 10000) in paragraph at lines 298--298
 []|\OT1/cmr/m/n/10 Remove node not
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 307--307
+Underfull \hbox (badness 10000) in paragraph at lines 308--308
 []|\OT1/cmr/m/n/10 Increase as-so-ci-ated
  []
 
 
-Underfull \hbox (badness 3460) in paragraph at lines 312--312
+Underfull \hbox (badness 3460) in paragraph at lines 313--313
 \OT1/cmr/m/n/10 the packet through
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 316--316
+Underfull \hbox (badness 10000) in paragraph at lines 317--317
 []|\OT1/cmr/m/n/10 Increase as-so-ci-ated
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 326--326
+Underfull \hbox (badness 10000) in paragraph at lines 327--327
 []|\OT1/cmr/m/n/10 Decrease as-so-ci-ated
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 331--331
+Underfull \hbox (badness 10000) in paragraph at lines 332--332
 \OT1/cmr/m/n/10 as the con-troller
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 331--331
+Underfull \hbox (badness 10000) in paragraph at lines 332--332
 \OT1/cmr/m/n/10 routes the packet
  []
 
 
-Underfull \hbox (badness 2460) in paragraph at lines 331--331
+Underfull \hbox (badness 2460) in paragraph at lines 332--332
 \OT1/cmr/m/n/10 through the newest
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 335--335
+Underfull \hbox (badness 10000) in paragraph at lines 336--336
 []|\OT1/cmr/m/n/10 Decrease as-so-ci-ated
  []
 
 
-Overfull \hbox (36.51796pt too wide) in alignment at lines 259--344
+Overfull \hbox (36.51796pt too wide) in alignment at lines 260--345
  [] [] [] [] [] 
  []
 
 
-Underfull \vbox (badness 10000) detected at line 344
+Underfull \vbox (badness 10000) detected at line 345
  []
 
-[7 <./NU_Algorithm_Example.png>] [8]
-Underfull \hbox (badness 10000) in paragraph at lines 349--349
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 350--350
 []\OT1/cmr/bx/n/10 Demo
  []
 
 
-Underfull \hbox (badness 1028) in paragraph at lines 351--352
+Underfull \hbox (badness 1028) in paragraph at lines 352--353
 \OT1/cmr/m/n/10 such that the short-est path
  []
 
 
-Underfull \hbox (badness 1028) in paragraph at lines 356--357
+Underfull \hbox (badness 1028) in paragraph at lines 357--358
 \OT1/cmr/m/n/10 such that the short-est path
  []
 
 
-Underfull \hbox (badness 1371) in paragraph at lines 356--357
+Underfull \hbox (badness 1371) in paragraph at lines 357--358
 \OT1/cmr/m/n/10 Then a sim-ple data stream
  []
 
 
-Overfull \hbox (24.51796pt too wide) in paragraph at lines 347--362
+Overfull \hbox (24.51796pt too wide) in paragraph at lines 348--363
 [] 
  []
 
@@ -696,42 +702,42 @@ Missing character: There is no   in font cmr10!
 [9]
 Missing character: There is no Â in font cmr10!
 Missing character: There is no   in font cmr10!
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 419.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 420.
  [10pdfTeX warning (ext4): destination with the same identifier (name{cite.}) h
 as been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.419 \end{document}
+l.420 \end{document}
                     pdfTeX warning (ext4): destination with the same identifier
  (name{cite.}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.419 \end{document}
+l.420 \end{document}
                     pdfTeX warning (ext4): destination with the same identifier
  (name{cite.}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.419 \end{document}
+l.420 \end{document}
                     ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 419.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 420.
  (./interim_report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 419.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 419.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 420.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 420.
 Package rerunfilecheck Info: File `interim_report.out' has not changed.
 (rerunfilecheck)             Checksum: 1CC9A518AFC1C78A20CF558D2299D088;2073.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 419.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 420.
  ) 
 Here is how much of TeX's memory you used:
  8257 strings out of 495020
  119679 string characters out of 6181325
- 244572 words of memory out of 5000000
+ 238572 words of memory out of 5000000
  11310 multiletter control sequences out of 15000+600000
  11188 words of font info for 41 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -748,7 +754,7 @@ msfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.p
 fb>
-Output written on interim_report.pdf (10 pages, 348741 bytes).
+Output written on interim_report.pdf (10 pages, 348703 bytes).
 PDF statistics:
  267 PDF objects out of 1000 (max. 8388607)
  226 compressed objects within 3 object streams
