@@ -220,8 +220,9 @@ node is the adjacent node in the optimal path.
 directions. A simple illustration will clarify this step. 
 \end{itemize}
 \item \textit{Example}: In the below illustration, the edge nodes are A and D and the optimal path is A-B-D. To enforce
-forwarding along A->B->D through the optimal path, A sends to B by changing the DST\_MAC to B’s MAC and then B sends to D
-by changing the DST\_MAC to D’s MAC and SRC\_MAC to B’s MAC. Similar rules on D and B are required to enable for D->B->A. 
+forwarding along A-\textgreater B-\textgreater D through the optimal path, A sends to B by changing the DST\_MAC to B’s MAC and then B sends to D
+by changing the DST\_MAC to D’s MAC and SRC\_MAC to B’s MAC. Similar rules on D and B are required to enable for
+D-\textgreater B-\textgreater A. 
 \end{itemize}
 \begin{figure}[H]
 \caption{Flow Rule Illustration}
@@ -347,15 +348,66 @@ Pending\\
 \hline
 \textbf{Demo ID}	&	\textbf{Scenario}	&	\textbf{Expected Observation}	&	\textbf{Conclusion}	\\ 
 \hline \hline
-D-1 & The nodes will be arranged such that the shortest path from A to D is A-> D. Then a simple data stream from Host 1
+D-1 & The nodes will be arranged such that the shortest path from A to D is A-\textgreater D. Then a simple data stream from Host 1
 to Host 2 will be started. Tcpdump will be running on all nodes & Tcpdump for A and D nodes will show the data stream
 but tcpdump for B and C nodes will show no activity & The system has setup the flow in such a way that the route is
 direct. \\
 \hline
-D-2 & The nodes will be arranged such that the shortest path from A to D is A->B->C->D. Then a simple data stream from
+D-2 & The nodes will be arranged such that the shortest path from A to D is A-\textgreater B-\textgreater C-\textgreater D. Then a simple data stream from
 Host 1 to Host 2 will be started. Tcpdump will be running on all nodes & Tcpdump for A,B,C,D nodes will show the data
 stream and indicate the packet path & The system has setup the flow in such a way that the route is not the direct
 route. LQI based routing has successfully taken place and routes have been configured accordingly \\
 \hline
 \end{tabular}}
+\section{Self-study Plan}
+\subsection{Description of Base Case}
+The base case for our system is a 4 node wireless ad-hoc network topology. In a normal ad-hoc topology, if a
+transmission has to be sent from node A to node D, it will be sent directly(A-\textgreater D). This takes place irrespective of the
+link quality between these nodes as these nodes are in the same wireless ad-hoc network. Also, it is to be noted that in
+case A and D are not in range of each other, the transmission is not possible.
+\subsection{Characteristics to Observe}
+The main characteristics to observe in this case are as follows:
+\begin{enumerate}
+\item \textit{Link quality}: The wireless link quality between each and every node is an important characteristic which will be
+continuously observed and reported as mentioned above. 
+\item \textit{Packet path}: The packet path will adhere to the rules set by the SDN controller. A method to observe the path has
+been discussed in the test cases above. 
+\item \textit{Latency}: The latency when the packet goes normally(as in base case) from A-\textgreater D and when it takes a different route
+will be indicative of the tradeoffs between time-delay and link quality. The measurements will be recorded in log files
+so that they can be reviewed.
+\end{enumerate}
+\subsection{Range of Scenarios to Investigate}
+There will be three major scenarios to investigate in this system are as follows:
+\begin{enumerate}
+\item The first scenario will be to observe edge-to-edge packet forwarding without any OpenFlow flows installed. It is
+expected that a packet destined to reach router D from router A, will be sent directly to router D. The main things
+which will be important to observe and consider is the time delay that it takes for this transmission, successful
+delivery of packet to D and the link quality between A and D. 
+\item The second scenario will be set up in such a way that the OpenFlow Flow tables are setup as mentioned in the
+low-level design and edge-to-edge forwarding is carried out. In this scenario it is expected that, the link quality
+between A- \textgreater D be lower than the link qualities between B-\textgreater D and A-\textgreater B.  The packet
+will then take the path A-\textgreater B-\textgreater D and the
+timing delay will be observed. We think that the packet will take more time as it is coming via a longer route in spite
+of a shorter route with poorer link quality being available.
+\item In the third scenario, we will set up the network so that A and D are not in range. In this case it is expected
+that the base case will fail to transmit but the proposed system shall deliver the packet successfully albeit with a
+higher delay.  
+\end{enumerate}
+\begin{thebibliography}{5}
+\bibitem{openflow}
+OpenFlow Switch Specification
+\\\texttt{http://archive.openflow.org/documents/openflow-wp-latest.pdf}
+\bibitem{rfc2501}
+RFC 2501: Wireless ad-hoc Networks
+\\\texttt{https://tools.ietf.org/html/rfc2501}
+\bibitem{tcpdump}
+Radiotap header
+\\\texttt{http://www.radiotap.org/}
+\bibitem{}
+Open VSwitch
+\\\texttt{http://openvswitch.org/}
+\bibitem{}
+RFC 768: User Datagram Protocol
+\\\texttt{https://www.ietf.org/rfc/rfc768.txt}
+\end{thebibliography}
 \end{document}
