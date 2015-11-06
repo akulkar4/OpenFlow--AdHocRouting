@@ -27,13 +27,14 @@
 }
 \date{
     \small{\url{https://sites.google.com/a/ncsu.edu/openflow-based-adaptive-routing-for-wireless-networks}}\\
-    October 4th, 2015}
+    November 5th, 2015}
 
 \pagestyle{fancy}
 \fancyhf{}
 \rhead{OpenFlow-based Adaptive Routing for Wireless Networks}
 \lhead{CSC573}
 \rfoot{Page \thepage}
+
 \begin{document}
 \maketitle
 \section{Introduction}
@@ -55,22 +56,21 @@ dynamically modified to ensure effective end to end packet transmission.
 \section{Components}
 \subsection{Platforms for the project}
 \begin{itemize}
-\item CentMesh
 \item OpenFlow v1.3
-\item OpenDaylight
 \item Ubuntu
+\item SDN Controller
 \end{itemize}
 \subsection{Areas for the project}
 \begin{itemize}
 \item Link Quality Monitoring
 \item Adaptive Routing
-\item Quality of Service
 \end{itemize}
 \subsection{Major Components}
 \subsubsection{Wireless Ground Nodes}
-The ground nodes will be movable CentMesh carts. They will have the following features:
+The ground nodes will be laptops. They will have the following features:
 \begin{itemize}
 \item At least one wireless interface
+\item At least one interface to connect to the host
 \item Open vSwitch module installed
 \item One of the ground nodes will be the controller
 \end{itemize}
@@ -101,54 +101,133 @@ network of aerial and ground nodes. One of the nodes acts as an SDN controller a
 quality information (LQI) module is running on all the nodes in the network and this information is forwarded to the
 OpenFlow controller which makes adaptive routing decisions. The controller will use this information to compute the
 optimum end-to-end route between the endpoints. These routes will then be configured into the nodes using OpenFlow. The
-nodes will have OpenFlow agent running on them which will configure the routes sent by the Controller. 
+nodes will have OVS running on them which will configure the routes sent by the Controller. 
 \subsection{Link Quality Information Module}
 \begin{figure}[H]
 \caption{Components in the Link Quality Information Module}
 \centering
 \includegraphics[width=\textwidth]{lqi}
 \end{figure}
-\noindent \textbf{Packet Broadcaster} \\
-The packet broadcaster will broadcast packets at a regular interval to initiate the neighbour discovery. \\
-
-\noindent \textbf{LQI Response Handler} \\
-The LQI Response handler will wait for the responses to the broadcast packets sent by the Packet Broadcaster. It will
-then forward these responses to the LQI calculator. \\
-
-\noindent \textbf{Broadcast Receiver} \\
-The broadcast receiver will receive the broadcast packets sent by the neighboring node LQI modules. \\
-
-\noindent \textbf{Broadcast Responder} \\
-Upon receiving the broadcast packets from the other LQI modules, the broadcast responder will send a response to the
-appropriate nodes from where it received the broadcast packet. The response will be such that the other side will
-appropriately be able to establish the link quality.\\
-
-\noindent \textbf{LQI Calculator} \\
-The LQI Calculator will assimilate all the responses from the neighbouring nodes and update the link quality information
-table.\\
-
-\noindent \textbf{LQI to Control Updater} \\
-The LQI to Control Updater gets the calculated Link Quality Information from the LQI Calculator. It will send this
-information over to the controller. \\
+This module is responsible for estimating the point-to-point link quality between nodes. It will run on all the nodes in
+the topology and give a periodically updated link quality estimate to the SDN controller. This information can then be
+used by the SDN controller to update the topology and find the optimal path. The module is made up of two units: 
+\begin{itemize}
+\item \textit{Request unit}: It sends out the UDP broadcast and receives the responses for these broadcasts (Packet Broadcaster, Response Handler).
+\item \textit{Response unit}: It receives the UDP broadcast and responds to it (Broadcast Receiver, Broadcast Responder).
+\end{itemize}
+\subsubsection{Packet Broadcaster} 
+The LQI packet broadcaster will send out a UDP broadcast on the ad-hoc network. The broadcast is directed at a specific
+UDP port to differentiate it from normal UDP traffic. The packet broadcaster will send out a broadcast packet after a 10
+second interval. The UDP frame will look as follows:
+%TODO: Add frame
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{packet_broadcaster}
+\end{figure}
+\subsubsection{Broadcast Receiver}
+Will listen on a specific port for LQI Hello packets and trigger the Broadcast Responder once it has verified the frame
+format for each. 
+\subsubsection{Broadcast Responder} 
+Will prepare a unicast response for the broadcast source. The response will be sent out to a specific UDP port and will
+have the following format. %TODO: Adding frame
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{broadcast_responder}
+\end{figure}
+\subsubsection{Response Handler} 
+The LQI Response Handler will listen at a specific port for any LQI responses, parse the LQI packet for obtaining the
+SSI, source and destination IP and MAC, and forward the packet to the LQI calculator. The module will have a timeout
+within which it expects to receive all the responses and will update the LQI Calculator after the timeout. The radiotap
+header (LINKTYPE\_IEEE802\_11\_RADIOTAP) is an alternative to the normal 802.11 header (LINKTYPE\_IEEE802\_11) and and
+contains some extra information about the wireless network along with the normal 802.11 header. The radiotap header
+itself consists of a set of defined fields from which antenna signal (SSI) is to be extracted. The position of the
+Radiotap header in the frame is as shown below. 
+%TODO: Frame
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{response_handler}
+\end{figure}
+\subsubsection{LQI Calculator} 
+This module will get the SSI, source and destination IP and MAC address values from the Response Handler for all the
+responses it receives. These value will be converted and stored in an LQI table in a format which can be further sent to
+the controller.
+\subsubsection{LQI to Control Updater} 
+This module will refer to the values stored by the Calculator in LQI information table and prepare a payload that will
+be sent to the controller. This packet will be used by the controller to create a topology and find the optimal path.
+The format of the payload is as follows:
+%TODO: Frame
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{lqi_to_control_updater}
+\end{figure}
 \subsection{OpenFlow Control Module}
 \begin{figure}[H]
 \caption{Components in the OpenFlow Control application}
 \centering
 \includegraphics[width=\textwidth]{openflow}
 \end{figure}
-\noindent \textbf{Topology Modifier} \\
-The LQI packets received by the controller will be send to this module to generate/update the network topology. The
-topology will consists of the nodes and the link costs associated between each nodes. If there’s is a modification in
-the topology, the Optimal Path Finder module will be notified to update the routes. \\
+\subsubsection{Topology Modifier(TM)}
+\textit{Function}: Generate and maintain the topology of the network and intimate Optimal Path Finder about topology change.
+\begin{itemize}
+\item Topology Construction: TM module accept the LQI messages and constructs the adjacency lists for all the nodes in
+the network. The node data structure will contain following information be as follows:
+\begin{itemize}
+\item Node IP
+\item Node MAC
+\item Adjacent Nodes(IP and MAC) along with cost to reach them
+\end{itemize}
+\item \textit{Node Removal}: For each node, we shall have a running timer. If we do not get ‘N’ consecutive LQI messages from a
+node, we shall remove the node from the topology. Calculation of N will be done later. We cannot have a high N because
+the network convergence time would be affected. We cannot keep it low because that will mean a lot of reconfigurations
+by the Network Updater if the node was not out of network or down but it’s LQI messages were dropped for a transient
+duration due to other factors.
+\item \textit{Topology Updates}: The TM module will be invoked to update the topology when one of the following event occurs in
+the network:
+\begin{itemize}
+\item \textit{Node Addition}: When a node is added, it will be added to the adjacency list and cost to reach it from other nodes,
+and costs from that new node to other nodes need to be updated.
+\item \textit{Node Removal}: When a node is removed from the network(See “Node Removal” above), we need to remove its entry.
+\item \textit{Cost Updates}: When the LQI message from a node is received with different costs, the adjacency list of that node
+shall be update.
+\end{itemize}
+\item \textit{Callback to Optimal Path Finder}: When the topology is updated, it will send a callback to the OPF module.
+\end{itemize}
+\subsubsection{Optimal Path Finder(OPF)}
+\textit{Function}: Find the lowest cost path between the end hosts.
+\begin{itemize}
+\item \textit{Limited Paths}: Since the topology is limited - 4 nodes and 2 of them connect to the end hosts - we have limited
+end-to-end paths between the 2 edge nodes.
+\begin{figure}[H]
+\caption{Paths between edge nodes}
+\centering
+\includegraphics[width=\textwidth]{OPF_paths}
+\end{figure}
+\item \textit{Path Selection}: OPF will calculate path costs for all the 4 paths and select the least cost path.
+\item \textit{Callback to Network Updater}: If the new path is different from the previous path, we send a callback to
+the Network Updater.
+\end{itemize}
+\subsubsection{Network Updater(NU)}
+\begin{itemize}
+\item \textit{Problem}: Since the network is wireless ad-hoc and all the nodes can generally connect to each other, the
+destination node will accept the packet directly. We need to enforce a method so that the packet follows the optimal
+path calculated by the OPF and not the direct path between edge nodes.
+\item \textit{Algorithm}: 
+\begin{itemize}
+\item \textit{Edge Nodes}: Install single rule on edge nodes to modify the DST\_MAC to it’s next node’s MAC. Here, next
+node is the adjacent node in the optimal path.
+\item \textit{Internal Nodes}: Install two rules on internal nodes to modify the DST\_MAC as well as SRC\_MAC for both the
+directions. A simple illustration will clarify this step. 
+\end{itemize}
+\item \textit{Example}: In the below illustration, the edge nodes are A and D and the optimal path is A-B-D. To enforce
+forwarding along A->B->D through the optimal path, A sends to B by changing the DST\_MAC to B’s MAC and then B sends to D
+by changing the DST\_MAC to D’s MAC and SRC\_MAC to B’s MAC. Similar rules on D and B are required to enable for D->B->A. 
+\end{itemize}
+\begin{figure}[H]
+\caption{Flow Rule Illustration}
+\centering
+\includegraphics[width=\textwidth]{NU_Algorithm_Example}
+\end{figure}
 
-\noindent \textbf{Optimal Path Finder} \\
-This module will keep a snapshot of the Network Model and compute the new model from the updated Topology. The new model
-will be compared to the previous snapshot to detect changes. If the model has been modified, it will intimate the
-Network Updater to configure these changes in Network.\\
-
-\noindent \textbf{Network Updater} \\
-If the Network Updater receives a call to configure the changes in the network, it will compute the changes from the
-previous snapshot and then configure the routes that have been changed to appropriate nodes.
 \section{Per-member Responsibilities}
 \begin{tabular}{ | p{0.185\linewidth} | p{0.185\linewidth} | p{0.185\linewidth} | p{0.185\linewidth} | p{0.185\linewidth} | }
 \hline
@@ -169,49 +248,6 @@ Topology Modifier	&	Implement	&	Implement	&	Review	&	Review\\
 Optimal Path Finder	&	Implement	&	Implement	&	Review	&	Review\\
 \hline
 Network Updater	&	Implement	&	Implement	&	Review	&	Review\\
-\hline
-\end{tabular}
-
-\section{Timeline}
-\begin{figure}[H]
-\caption{Project Timeline}
-\centering
-\includegraphics[width=\textwidth]{timeline}
-\end{figure}
-
-\begin{tabular}{  | p{.45\linewidth} | p{0.185\linewidth} | p{0.185\linewidth} | p{0.09\linewidth} |}
-\hline
-\textbf{Name}	&	\textbf{Begin date}	&	\textbf{End date}	&	\textbf{Duration (Days)} \\
-\hline
-Node Setup	&	10/7/15	&	10/9/15	&	3 \\
--Installation of Linux/OvS on BeagleBone	&	10/7/15	&	10/8/15	&	2 \\
--Verification of installation	&	10/9/15	&	10/9/15	&	1 \\
-\hline
-Ad-hoc Network	&	10/10/15	&	10/14/15	&	5 \\
--Creation of network	&	10/10/15	&	10/12/15	&	3 \\
--Test Ad-hoc network	&	10/13/15	&	10/14/15	&	2 \\
-\hline
-LQI Module	&	10/15/15	&	11/4/15	&	21 \\
--Packet Broadcaster, LQI Response Handler	&	10/15/15	&	10/19/15	&	5 \\
--Broadcast Receiver, Broadcast Responder	&	10/20/15	&	10/24/15	&	5 \\ 
--LQI Calculator, LQI Send to Controller	&	10/25/15	&	10/29/15	&	5 \\
--LQI Module Field Test	&	10/30/15	&	11/1/15	&	3 \\
--Buffer	&	11/2/15	&	11/4/15	&	3 \\
-\hline
-OF Controller Module	&	10/10/15	&	11/5/15	&	27 \\
--Topology Modifier	&	10/10/15	&	10/17/15	&	8 \\
--Optimum Path Finder	&	10/18/15	&	10/25/15	&	8 \\
--Network Updater	&	10/26/15	&	11/2/15	&	8 \\ 
--Buffer	&	11/3/15	&	11/5/15	&	3 \\
-\hline
-Interim Project Report	&	11/5/15	&	11/5/15	&	1 \\
-\hline
-System Integration Testing	&	11/6/15	&	11/27/15	&	22 \\
--Module Integration	&	11/6/15	&	11/15/15	&	10 \\
--Troubleshooting possible issues	&	11/16/15	&	11/22/15	&	7 \\
--Verification	&	11/23/15	&	11/27/15	&	5 \\
-\hline
-Final Report and Demo	&	11/28/15	&	11/28/15	&	1 \\
 \hline
 \end{tabular}
 
