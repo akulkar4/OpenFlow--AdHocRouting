@@ -1,0 +1,28 @@
+root@debian:~# ovs-ofctl show br0
+OFPT_FEATURES_REPLY (xid=0x1): dpid:0000b6f2cb226843
+n_tables:255, n_buffers:256
+capabilities: FLOW_STATS TABLE_STATS PORT_STATS QUEUE_STATS ARP_MATCH_IP
+actions: OUTPUT SET_VLAN_VID SET_VLAN_PCP STRIP_VLAN SET_DL_SRC SET_DL_DST SET_NW_SRC SET_NW_DST SET_NW_TOS SET_TP_SRC SET_TP_DST ENQUEUE
+ 1(eth1): addr:fe:16:3e:00:38:79
+     config:     0
+     state:      0
+     speed: 100 Mbps now, 100 Mbps max
+ 2(eth2): addr:fe:16:3e:00:4c:08
+     config:     0
+     state:      0
+     speed: 100 Mbps now, 100 Mbps max
+ 3(eth3): addr:fe:16:3e:00:5e:1a
+     config:     0
+     state:      0
+     speed: 100 Mbps now, 100 Mbps max
+ 5(eth4): addr:fe:16:3e:00:42:2c
+     config:     0
+     state:      0
+     speed: 100 Mbps now, 100 Mbps max
+ LOCAL(br0): addr:b6:f2:cb:22:68:43
+     config:     PORT_DOWN
+     state:      LINK_DOWN
+     speed: 100 Mbps now, 100 Mbps max
+OFPT_GET_CONFIG_REPLY (xid=0x3): frags=normal miss_send_len=0
+root@debian:~# 
+

@@ -1,0 +1,1 @@
+./pox.py --verbose openflow.topology forwarding.l2_learning openflow.discovery
