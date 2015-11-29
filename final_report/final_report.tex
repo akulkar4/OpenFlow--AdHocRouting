@@ -28,7 +28,8 @@
 }
 \date{
     \small{\url{https://sites.google.com/a/ncsu.edu/openflow-based-adaptive-routing-for-wireless-networks}}\\
-    November 5th, 2015}
+    \small{\url{https://github.ncsu.edu/jndarji/CSC573_FALL2015_Project}}\\
+    November 28th, 2015}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -57,9 +58,9 @@ dynamically modified to ensure effective end to end packet transmission.
 \section{Components}
 \subsection{Platforms for the project}
 \begin{itemize}
-\item OpenFlow v1.3
+\item OpenFlow v1.0
 \item Ubuntu
-\item SDN Controller
+\item POX OpenFlow Controller
 \end{itemize}
 \subsection{Areas for the project}
 \begin{itemize}
@@ -255,7 +256,7 @@ Network Updater	&	Implement	&	Implement	&	Review	&	Review\\
 \end{tabular}}
 
 \newpage
-\section{Test Plan}
+\section{Test Results}
 {\renewcommand{\arraystretch}{1.5}
 \begin{longtable}{  | p{0.1\linewidth} | p{0.2\linewidth} | p{0.35\linewidth} | p{0.2\linewidth} | p{0.1\linewidth} | }
 \hline
@@ -493,22 +494,47 @@ stream and indicate the packet path & The system has setup the flow in such a wa
 route. LQI based routing has successfully taken place and routes have been configured accordingly \\
 \hline
 \end{tabular}}
-\section{Self-study Plan}
+\section{Self-study Results}
 \subsection{Description of Base Case}
 The base case for our system is a 4 node wireless ad-hoc network topology. In a normal ad-hoc topology, if a
 transmission has to be sent from node A to node D, it will be sent directly(A-\textgreater D). This takes place irrespective of the
 link quality between these nodes as these nodes are in the same wireless ad-hoc network. Also, it is to be noted that in
 case A and D are not in range of each other, the transmission is not possible.
 \subsection{Characteristics to Observe}
-The main characteristics to observe in this case are as follows:
+The main characteristics observed are as follows:
 \begin{enumerate}
-\item \textit{Link quality}: The wireless link quality between each and every node is an important characteristic which will be
-continuously observed and reported as mentioned above. 
-\item \textit{Packet path}: The packet path will adhere to the rules set by the SDN controller. A method to observe the path has
-been discussed in the test cases above. 
-\item \textit{Latency}: The latency when the packet goes normally(as in base case) from A-\textgreater D and when it takes a different route
-will be indicative of the tradeoffs between time-delay and link quality. The measurements will be recorded in log files
-so that they can be reviewed.
+\item \textit{Link Quality}: 
+Link quality was successfully observed by using the RadioTap header. A virtual network interface was created using the
+Linux “iw” wireless device configuration utility. This interface was set in monitor mode and observed and formatted all
+the radiotap data received on wlan0.\\
+
+Active link quality information was collected for every LQI packet received on every node. Every node sends out its own
+link quality as “1000”, a random default value chosen for standardisation purposes.  The actual signal strength is =
+-”LQI” dB \\
+
+A sample LQI packet as observed from the node with an IP address 192.168.10.4 is shown below:\\
+\begin{tabular}{ | p{0.49\linewidth} | p{0.49\linewidth} |}
+\hline
+\textbf{IP Address} & \textbf{LQI Value} \\
+\hline\hline
+192.169.10.1 & 47 \\
+192.169.10.2 & 0 \\
+192.169.10.3 & 37 \\
+192.169.10.4 & 1000 \\
+\hline
+\end{tabular}
+\item \textit{Packet path}: The packet path can be observed once the OpenFlow controller starts enforcing rules and
+setting LQI-based paths. The following figure shows the path taken by a UDP packet sent from A to D when a path A-C-D is
+set by the controller.
+\begin{figure}[H]
+\caption{Packet being sent from D to A through C}
+\centering
+\includegraphics[width=\textwidth]{test_images/dump_4}
+\end{figure}
+\item \textit{Latency}: As the packet may not be routed directly, some delay will be experienced for each hop it takes.
+This (negligible) delay can be seen in the figure above. The packet is sent via the path A-C-D. The packet reaches C at
+time 21:24:27.684111, and reaches D at time 21:24:27.685720, a delay of 0.001609 secs that was caused because of this
+hop. 
 \end{enumerate}
 \subsection{Range of Scenarios to Investigate}
 There will be three major scenarios to investigate in this system are as follows:
@@ -527,10 +553,53 @@ of a shorter route with poorer link quality being available.
 that the base case will fail to transmit but the proposed system shall deliver the packet successfully albeit with a
 higher delay.  
 \end{enumerate}
+\section{Reflections}
+\subsection{Per-member Learning Experiences}
+\begin{itemize}
+\item \textbf{Alok Kulkarni} \\Coming into this project I had a very limited experience of working with wireless-ad-hoc networks, OpenFlow and
+OpenVSwitch. Working with these things throughout the duration of the course has helped me gain a deeper understanding
+of the nitty-gritties of fundamental networking concepts and help me get a good grip over the above mentioned things.
+Traffic management in ad-hoc networks, OpenVSwitch configuration and working, deeper exploration of the Linux wireless
+networking stack, basic scripting knowledge and working familiarity with commonly used linux command-line utilities such
+as tcpdump, iw were some of the important lessons I learnt while working on this project.
+\item \textbf{Jignesh Darji} \\Learning and working on SDN was one of the primary reasons I decided to pursue a Master’s
+degree. This project was very challenging and the learning curve as well as the learning was steep. Starting with the
+most fundamental step of the project, installing OpenFlow rules over wireless network, was an important challenge and
+which brought immense satisfaction. In our initial approach to that, we were mangling the L3 header also, along with the
+L2 header, to force multi-hop approach in the ad-hoc network. Upon consultation, we learned that the mangling of L3
+header was unnecessary and only modifying the dst\_mac to the next hop would suffice. Next challenge was performing these
+steps programmatically, populating the costs in the LQI messages, and then configuring the network. The development of
+the project required learning Python and debugging network program using tcpdump and logging in the program.  
+\item \textbf{Nishad Sabnis} \\While creation of the ad-hoc network was easy, the actual setup and the issues that arose
+helped me learn the nuances of ad-hoc networking. The ovs bridge setup and the OpenFlow rule installations have given me
+a lot of confidence in my understanding of the data link and network layers. The plethora of linux command line
+utilities and other tricks I learnt will help me in the future too. The background research done on the radiotap header
+increased my knowledge of network adapter chips and gave me insight into the working of tools such as tcpdump. I had
+never done any programming in python, so this was a good opportunity for me to learn. Working with threads, socket and
+timers lead to me being comfortable with python.
+\end{itemize}
+\subsection{What went as expected?} 
+\begin{itemize}
+\item Creation of the ad-hoc network went smoothly and without any issues. 
+\item The UDP broadcast mechanism for the LQI and neighbour discovery was also completed without any major issues and
+worked as per the design. 
+\item The SDN Controller met all the needs and no workarounds were required to work with it.
+\end{itemize}
+\subsection{What did not go as expected?}
+\begin{itemize}
+\item The plan of using pcap to extract the signal  level was not successful. Despite a lot of attempts, due to lack of
+documentation and examples, we were not able to properly capture packets using pcap. We tried alternatives like pcapy
+and scapy to no avail. Finally, due to time constraints we employed the method of creating a monitor interface using the
+iw command and then ran tcpdump as a subprocess in a python script. The tcpdump output was then parsed to get the
+radiotap header information, and the signal quality within it. 
+\end{itemize}
 \begin{thebibliography}{5}
 \bibitem{openflow}
 OpenFlow Switch Specification
 \\\texttt{http://archive.openflow.org/documents/openflow-wp-latest.pdf}
+\bibitem{pox}
+POX OpenFlow Controller
+\\\texttt{https://openflow.stanford.edu/display/ONL/POX+Wiki}
 \bibitem{rfc2501}
 RFC 2501: Wireless ad-hoc Networks
 \\\texttt{https://tools.ietf.org/html/rfc2501}
@@ -540,6 +609,9 @@ Radiotap header
 \bibitem{}
 Open VSwitch
 \\\texttt{http://openvswitch.org/}
+\bibitem{}
+IW utility
+\\\texttt{https://wireless.wiki.kernel.org/en/users/documentation/iw}
 \bibitem{}
 RFC 768: User Datagram Protocol
 \\\texttt{https://www.ietf.org/rfc/rfc768.txt}
