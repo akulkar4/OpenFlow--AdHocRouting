@@ -106,7 +106,7 @@ def lqi_response(connection):
 
 
 def parse_lqi(udp_packet):
-    print("UDP Packet: ", udp_packet.payload)
+    # print("UDP Packet: ", udp_packet.payload)
     values = udp_packet.payload.split(';')
     src_ip = IPAddr("0.0.0.0")
     for value in values:
@@ -137,9 +137,9 @@ def optimal_path_finder():
     print("Cost Matrix: ", cost_matrix)
     min_from_a = cost_matrix[node_a].index(min(cost_matrix[node_a][0:4]))
     min_from_b = cost_matrix[node_b].index(min(cost_matrix[node_b][2:4]))
-    print("Cost Matrix for A: ", cost_matrix[node_a])
-    print("Min from A: ", min(cost_matrix[node_a][1:4]), " Min from B: ", min(cost_matrix[node_b][2:4]))
-    print("Min from A: ", min_from_a, " Min from B: ", min_from_b)
+    # print("Cost Matrix for A: ", cost_matrix[node_a])
+    # print("Min from A: ", min(cost_matrix[node_a][1:4]), " Min from B: ", min(cost_matrix[node_b][2:4]))
+    # print("Min from A: ", min_from_a, " Min from B: ", min_from_b)
     del optimal_path[:]
     optimal_path.append(node_a)
     if ip_list[min_from_a] == node_b:
@@ -268,7 +268,7 @@ def mac_hopping_rule(src_ip, dst_ip, next_hop_ip, is_edge=False):
     connection.send(fm)
     snapshot_mac_hop_rule[src_ip][int(next_hop_ip.toStr().split('.')[-1]) - 1] = fm
     log.info("MAC_hop end")
-    print ip_to_mac_dict
+    # print ip_to_mac_dict
     log.info("mac_hopping_rule end")
 
 
