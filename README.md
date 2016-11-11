@@ -1,3 +1,8 @@
 # OpenFlow-based Adaptive Routing for Wireless Networks
-## Problem Statement
-Designing a system to enable adaptive routing in a wireless network in order to make a comparative analysis of the throughput efficiency of ground nodes versus aerial nodes.
+
+Implementation of OpenFlow based adaptive routing in an ad-hoc network by continuously monitoring the link quality between wireless nodes. Implemented as a class project for Internet Protocols at NCSU. 
+
+## Platforms
+• OpenFlow v1.0
+• BeagleBone Black running Debian
+• POX OpenFlow Controller
